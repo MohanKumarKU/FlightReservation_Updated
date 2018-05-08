@@ -12,6 +12,8 @@ public class ReservationRequest {
 	private String expirationMonth;
 	private String expirationYear;
 	private String securityCode;
+	private String latitude;
+	private String longitude;
 
 	public Long getFlightId() {
 		return flightId;
@@ -92,4 +94,30 @@ public class ReservationRequest {
 	public void setSecurityCode(String securityCode) {
 		this.securityCode = securityCode;
 	}
+
+	public String getLatitude() {
+		return latitude;
+	}
+
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+
+	@Override
+	public String toString() {
+		return "ReservationRequest [flightId=" + flightId + ", passengerFirstName=" + passengerFirstName
+				+ ", passengerLastName=" + passengerLastName + ", passengerEmail=" + passengerEmail
+				+ ", passengerPhone=" + passengerPhone + ", nameOnTheCard=" + nameOnTheCard + ", cardNumber="
+				+ cardNumber + ", expirationMonth=" + expirationMonth + ", expirationYear=" + expirationYear
+				+ ", securityCode=" + securityCode + ", latitude=" + latitude + ", longitude=" + longitude + "]";
+	}
+
 }

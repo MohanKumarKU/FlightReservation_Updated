@@ -15,7 +15,7 @@ import com.akshay.flightreservation.service.ReservationService;
 
 @Controller
 public class ReservationController {
-	private static String PAYMENT_REST_URL = "http://localhost:9898/paymentgateway/payment/";
+	private static String PAYMENT_REST_URL = "http://localhost:9576/paymentgateway/payment/";
 	
 	@Autowired
 	FlightRepository flightRepo;
@@ -43,9 +43,13 @@ public class ReservationController {
 	@RequestMapping(value = "/paymentGate", method = RequestMethod.POST)
 	public String paymentGateWay(ReservationRequest request, ModelMap modelMap) {
 		
+		System.out.println(request.toString());
+		
 		RestTemplate restTemplate = new RestTemplate();
+		
+		
 		//String crdNum = request.getCardNumber();
-		ReservationRequest reservationRequest = restTemplate.postForObject(PAYMENT_REST_URL,request,  ReservationRequest.class);
+		ReservationRequest reservationRequest = restTemplate.postForObject(PAYMENT_REST_URL, request,  ReservationRequest.class);
 		
 		
 		return "paymentMode";
