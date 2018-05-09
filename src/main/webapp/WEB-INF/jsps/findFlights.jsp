@@ -6,9 +6,6 @@
 * {
   box-sizing: border-box;
 }
-body {
-  font: 16px Arial;  
-}
 .autocomplete {
   /*the container must be positioned relative:*/
   position: relative;
@@ -57,8 +54,6 @@ input[type=submit] {
 }
 
 
-.bootstrap-iso .formden_header h2, .bootstrap-iso .formden_header p, .bootstrap-iso form{font-family: Arial, Helvetica, sans-serif; color: black}.bootstrap-iso form button, .bootstrap-iso form button:hover{color: white !important;} .asteriskField{color: red;}
-
 </style>
 
 
@@ -80,6 +75,7 @@ input[type=submit] {
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>		
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
@@ -123,6 +119,10 @@ body {font-family: Arial, Helvetica, sans-serif;}
 .btn:hover {
     opacity: 1;
 }
+form {
+    width: 300px;
+    margin: 0 auto;
+}
 </style>
 
 
@@ -146,6 +146,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 		<script src="resources/js/jquery.mobile.customized.min.js"></script>
 		<!--<![endif]-->
 		<script src="resources/js/booking.js"></script>
+		 
 </head>     
 
 <body>
@@ -153,7 +154,8 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <!--Make sure the form has the autocomplete function switched off:-->
 <form autocomplete="off" action="findFlights" method="post">
 
-<h2>Find Flights</h2>
+<h3 style="color:#006699">Find Flights</h3>
+
 <div class="autocomplete">
   <div class="input-container">
     <i class="fa fa-map-marker icon"></i>
@@ -186,6 +188,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 </form>
 
 <script>
+		
 function autocomplete(inp, arr) {
   /*the autocomplete function takes two arguments,
   the text field element and an array of possible autocompleted values:*/

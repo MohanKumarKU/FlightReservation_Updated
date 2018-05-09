@@ -160,6 +160,11 @@ span.price {
 						<input type="hidden" id="latitude" name="latitude">
 						<input type="hidden" id="longitude" name="longitude">
 						
+						<input type="hidden"  name="passengerFirstName" value = "${request.passengerFirstName}">
+						<input type="hidden"  name="passengerLastName" value = "${request.passengerLastName}">
+						<input type="hidden"  name="passengerEmail" value = "${request.passengerEmail}">
+						<input type="hidden"  name="passengerPhone" value = "${request.passengerPhone}">
+						
 						<div class="row">
 							<div class="col-50">
 								<label for="expyear">Exp Year</label> <input type="text"

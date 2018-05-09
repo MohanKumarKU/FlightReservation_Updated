@@ -15,7 +15,9 @@ import com.akshay.flightreservation.service.ReservationService;
 
 @Controller
 public class ReservationController {
-	private static String PAYMENT_REST_URL = "http://localhost:9576/paymentgateway/payment/";
+	private static final String PAYMENT_REST_URL = "http://localhost:9576/paymentgateway/payment/";
+	private static final String SUCCESS = "Success";
+	private static final String FAILURE = "Failure";
 	
 	@Autowired
 	FlightRepository flightRepo;
@@ -32,11 +34,8 @@ public class ReservationController {
 	
 	@RequestMapping(value = "/paymentMode", method = RequestMethod.POST)
 	public String paymentMode(ReservationRequest request, ModelMap modelMap) {
-		
+		modelMap.addAttribute("request", request);
 		return "paymentMode";
-		/*Reservation reservation = reservationService.bookFlight(request);
-		modelMap.addAttribute("msg", "Reservation created successfully and the id is " + reservation.getId());
-		return "reservationConfirmation";*/
 	}
 	
 	
@@ -47,22 +46,19 @@ public class ReservationController {
 		
 		RestTemplate restTemplate = new RestTemplate();
 		
+		ReservationRequest reservation = restTemplate.postForObject(PAYMENT_REST_URL, request,  ReservationRequest.class);
 		
-		//String crdNum = request.getCardNumber();
-		ReservationRequest reservationRequest = restTemplate.postForObject(PAYMENT_REST_URL, request,  ReservationRequest.class);
+		modelMap.addAttribute("reservation", reservation);
 		
-		
-		return "paymentMode";
-		/*Reservation reservation = reservationService.bookFlight(request);
-		modelMap.addAttribute("msg", "Reservation created successfully and the id is " + reservation.getId());
-		return "reservationConfirmation";*/
+		if(reservation.getStatus().equals(SUCCESS))
+		{
+			return "bookingsuccess";
+		}
+		else 
+		{
+			return "bookingfailed";
+		}
 	}
 	
 
-	/*@RequestMapping(value = "/completeReservation", method = RequestMethod.POST)
-	public String completeReservation(ReservationRequest request, ModelMap modelMap) {
-		Reservation reservation = reservationService.bookFlight(request);
-		modelMap.addAttribute("msg", "Reservation created successfully and the id is " + reservation.getId());
-		return "reservationConfirmation";
-	}*/
 }
