@@ -485,6 +485,7 @@ window.onclick = function(event) {
 						<a href="#" class="fa fa-google-plus"></a>
 					</div>
 					
+				
 					<div class="copy">
 						Your Trip (c) 2018 | <a href="#">Privacy Policy</a>
 					</div>
